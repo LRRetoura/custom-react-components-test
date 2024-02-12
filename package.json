@@ -1,11 +1,11 @@
 {
-  "name": "custom-react-components-test",
+  "name": "@LRRetoura/custom-react-components-test",
   "version": "1.0.0",
   "description": "test",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@LRRetoura"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "build": "tsc",
