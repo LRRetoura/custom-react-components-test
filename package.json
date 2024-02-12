@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/retoura/custom-react-components.git"
+    "url": "git+https://github.com/LRRetoura/custom-react-components-test.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/retoura/custom-react-components/issues"
+    "url": "https://github.com/LRRetoura/custom-react-components-test/issues"
   },
-  "homepage": "https://github.com/retoura/custom-react-components#readme",
+  "homepage": "https://github.com/LRRetoura/custom-react-components-test#readme",
   "peerDependencies": {
     "i18next": "^23.8.2",
     "react": "^18.2.0",
