@@ -15,7 +15,7 @@ export interface Printer {
     DisplayName: string,
 }
 
-interface OptionsPanelProps {
+interface SettingsProps {
     printer: Printer | null
     tester: Tester | null
     onOptionsSet: (printer: Printer | null, tester: Tester | null) => void
@@ -23,7 +23,7 @@ interface OptionsPanelProps {
 }
 
 
-export default function OptionsPanel(props: OptionsPanelProps) {
+export default function Settings(props: SettingsProps) {
     const { printer, tester, onOptionsSet, onErrorOccured } = props;
 
     const [queryPrinters, { data: printerListData, loading: printerListLoading, error: printerListError }] = usePrinterListLazyQuery();
