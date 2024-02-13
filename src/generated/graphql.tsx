@@ -118,6 +118,7 @@ export type Query = {
   ArticleHint?: Maybe<ArticleHint>;
   Employee?: Maybe<Employes>;
   PrinterList: Array<Printer>;
+  PrinterQuery?: Maybe<Printer>;
 };
 
 
@@ -133,6 +134,11 @@ export type QueryArticleHintArgs = {
 
 export type QueryEmployeeArgs = {
   loginID: Scalars['Int']['input'];
+};
+
+
+export type QueryPrinterQueryArgs = {
+  DisplayName: Scalars['String']['input'];
 };
 
 export type SparePart = {
@@ -162,10 +168,12 @@ export type VirtualCondition = {
   Logic?: Maybe<Scalars['String']['output']>;
 };
 
-export type PrinterListQueryVariables = Exact<{ [key: string]: never; }>;
+export type PrinterQueryQueryVariables = Exact<{
+  displayName: Scalars['String']['input'];
+}>;
 
 
-export type PrinterListQuery = { __typename?: 'Query', PrinterList: Array<{ __typename?: 'Printer', Server: string, Name: string, DisplayName: string }> };
+export type PrinterQueryQuery = { __typename?: 'Query', PrinterQuery?: { __typename?: 'Printer', Server: string, Name: string, DisplayName: string } | null };
 
 export type EmployeeQueryVariables = Exact<{
   loginId: Scalars['Int']['input'];
@@ -175,9 +183,9 @@ export type EmployeeQueryVariables = Exact<{
 export type EmployeeQuery = { __typename?: 'Query', Employee?: { __typename?: 'Employes', ID: number, Name: string } | null };
 
 
-export const PrinterListDocument = gql`
-    query PrinterList {
-  PrinterList {
+export const PrinterQueryDocument = gql`
+    query PrinterQuery($displayName: String!) {
+  PrinterQuery(DisplayName: $displayName) {
     Server
     Name
     DisplayName
@@ -186,36 +194,37 @@ export const PrinterListDocument = gql`
     `;
 
 /**
- * __usePrinterListQuery__
+ * __usePrinterQueryQuery__
  *
- * To run a query within a React component, call `usePrinterListQuery` and pass it any options that fit your needs.
- * When your component renders, `usePrinterListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `usePrinterQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePrinterQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = usePrinterListQuery({
+ * const { data, loading, error } = usePrinterQueryQuery({
  *   variables: {
+ *      displayName: // value for 'displayName'
  *   },
  * });
  */
-export function usePrinterListQuery(baseOptions?: Apollo.QueryHookOptions<PrinterListQuery, PrinterListQueryVariables>) {
+export function usePrinterQueryQuery(baseOptions: Apollo.QueryHookOptions<PrinterQueryQuery, PrinterQueryQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PrinterListQuery, PrinterListQueryVariables>(PrinterListDocument, options);
+        return Apollo.useQuery<PrinterQueryQuery, PrinterQueryQueryVariables>(PrinterQueryDocument, options);
       }
-export function usePrinterListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PrinterListQuery, PrinterListQueryVariables>) {
+export function usePrinterQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PrinterQueryQuery, PrinterQueryQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PrinterListQuery, PrinterListQueryVariables>(PrinterListDocument, options);
+          return Apollo.useLazyQuery<PrinterQueryQuery, PrinterQueryQueryVariables>(PrinterQueryDocument, options);
         }
-export function usePrinterListSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<PrinterListQuery, PrinterListQueryVariables>) {
+export function usePrinterQuerySuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<PrinterQueryQuery, PrinterQueryQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<PrinterListQuery, PrinterListQueryVariables>(PrinterListDocument, options);
+          return Apollo.useSuspenseQuery<PrinterQueryQuery, PrinterQueryQueryVariables>(PrinterQueryDocument, options);
         }
-export type PrinterListQueryHookResult = ReturnType<typeof usePrinterListQuery>;
-export type PrinterListLazyQueryHookResult = ReturnType<typeof usePrinterListLazyQuery>;
-export type PrinterListSuspenseQueryHookResult = ReturnType<typeof usePrinterListSuspenseQuery>;
-export type PrinterListQueryResult = Apollo.QueryResult<PrinterListQuery, PrinterListQueryVariables>;
+export type PrinterQueryQueryHookResult = ReturnType<typeof usePrinterQueryQuery>;
+export type PrinterQueryLazyQueryHookResult = ReturnType<typeof usePrinterQueryLazyQuery>;
+export type PrinterQuerySuspenseQueryHookResult = ReturnType<typeof usePrinterQuerySuspenseQuery>;
+export type PrinterQueryQueryResult = Apollo.QueryResult<PrinterQueryQuery, PrinterQueryQueryVariables>;
 export const EmployeeDocument = gql`
     query Employee($loginId: Int!) {
   Employee(loginID: $loginId) {

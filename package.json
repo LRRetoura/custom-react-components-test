@@ -1,6 +1,6 @@
 {
   "name": "@lrretoura/custom-react-components-test",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "test",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

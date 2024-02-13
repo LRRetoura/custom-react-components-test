@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 gql`
-  query PrinterList {
-  PrinterList {
+query PrinterQuery($displayName: String!) {
+  PrinterQuery(DisplayName: $displayName) {
     Server
     Name
     DisplayName
