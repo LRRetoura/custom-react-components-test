@@ -1,6 +1,6 @@
 import React from "react";
-import { Backdrop, Box, Button, CircularProgress, TextField, } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { Stack, TextField, } from "@mui/material";
+import { useEffect, useRef } from "react";
 import { useEmployeeLazyQuery, usePrinterQueryLazyQuery, } from "../generated/graphql";
 import { useTranslation } from "react-i18next";
 
@@ -20,7 +20,6 @@ interface SettingsProps {
     onTesterSet: (tester: Tester) => void
     onErrorOccured: (error: string) => void
 }
-
 
 export default function Settings(props: SettingsProps) {
     const { onPrintersSet, onTesterSet, onErrorOccured } = props;
@@ -54,7 +53,7 @@ export default function Settings(props: SettingsProps) {
     }, [printerError, testerError, testerInputReference, onErrorOccured]);
 
     return (
-        <Box display="flex" justifyContent="center" alignItems="center">
+        <Stack spacing={1}>
             <TextField
                 data-testid='printerInput'
                 variant="standard"
@@ -117,7 +116,7 @@ export default function Settings(props: SettingsProps) {
                 }}
                 inputRef={testerInputReference}
             />
-        </Box>
+        </Stack>
     )
 
 }
