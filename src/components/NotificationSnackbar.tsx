@@ -8,12 +8,8 @@ interface NotificationSnackbarProps {
     onClose: () => void;
 }
 
-export const NotificationSnackbar: React.FC<NotificationSnackbarProps> = ({
-    message,
-    type,
-    open,
-    onClose,
-}) => {
+export default function NotificationSnackbar(props: NotificationSnackbarProps) {
+    const { message, type, open, onClose } = props;
     return (
         <Snackbar
             anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
