@@ -15,7 +15,7 @@ export interface Printer {
 }
 
 interface Options {
-    language?: "Deutsch" | "Polski" | "English"
+    language?: "deutsch" | "polski" | "english"
     inputVariant?: "standard" | "filled" | "outlined"
 }
 
@@ -28,14 +28,14 @@ interface SettingsProps {
 
 const translations = {
     Printer: {
-        Deutsch: "Drucker",
-        Polski: "Drukarka",
-        English: "Printer",
+        deutsch: "Drucker",
+        polski: "Drukarka",
+        english: "Printer",
     },
     Tester: {
-        Deutsch: "Prüfer",
-        Polski: "Tester",
-        English: "Tester",
+        deutsch: "Prüfer",
+        polski: "Tester",
+        english: "Tester",
     },
 };
 
@@ -45,7 +45,7 @@ export default function Settings(props: SettingsProps) {
     const [queryTester, { data: testerData, loading: testerLoading, error: testerError }] = useEmployeeLazyQuery();
     const printerInputReference = useRef<HTMLInputElement>(null);
     const testerInputReference = useRef<HTMLInputElement>(null);
-    const language = options?.language || "Deutsch";
+    const language = options?.language || "deutsch";
     const inputVariant = options?.inputVariant || "standard";
 
     useEffect(() => {
