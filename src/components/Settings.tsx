@@ -56,7 +56,7 @@ export default function Settings(props: SettingsProps) {
         <Stack spacing={1}>
             <TextField
                 data-testid='printerInput'
-                variant="standard"
+                variant="outlined"
                 InputLabelProps={{
                     sx: {
                         fontSize: { sm: '1rem', md: '1.5rem', lg: '2rem', xl: '2.5rem' },
@@ -87,7 +87,7 @@ export default function Settings(props: SettingsProps) {
             />
             <TextField
                 data-testid='testerIdInput'
-                variant="standard"
+                variant="outlined"
                 InputLabelProps={{
                     sx: {
                         fontSize: { sm: '1rem', md: '1.5rem', lg: '2rem', xl: '2.5rem' },
